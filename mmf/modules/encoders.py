@@ -251,8 +251,8 @@ class ResNet152ImageEncoder(Encoder):
     def __init__(self, config: Config, *args, **kwargs):
         super().__init__()
         self.config = config
-        print('Resnet152ImageEncoder init - changing to torchvision.models.alexnet')
-        model = torchvision.models.alexnet(pretrained=config.get("pretrained", True))
+        print('Resnet152ImageEncoder init - changing to torchvision.models.inception_v3')
+        model = torchvision.models.inception_v3(pretrained=config.get("pretrained", True))
         #model = torchvision.models.resnet152(pretrained=config.get("pretrained", True))
         modules = list(model.children())[:-2]
         self.model = nn.Sequential(*modules)
