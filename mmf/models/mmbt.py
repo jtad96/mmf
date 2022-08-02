@@ -32,7 +32,7 @@ from omegaconf import DictConfig, II, OmegaConf
 from torch import nn, Tensor
 from transformers.modeling_bert import BertForPreTraining, BertPredictionHeadTransform
 
-
+print('test at top of file')
 # TODO: Remove after transformers package upgrade to 2.5
 class MMBTConfig:
     """Configuration class to store the configuration of a `MMBT Model`.
@@ -155,8 +155,9 @@ class MMBTModel(nn.Module):
         encoder = ImageEncoder(args)
         mmbt = MMBTModel(config, transformer, encoder)
     """
-
-    def __init__(self, config, transformer, encoder):
+    print('test in class')
+    def __init__(self, config, transformer, encoder):\
+        print('test in init')
         super().__init__()
         self.is_decoder = config.is_decoder
         self.num_hidden_layers = config.num_hidden_layers
