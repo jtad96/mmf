@@ -156,7 +156,7 @@ class MMBTModel(nn.Module):
         mmbt = MMBTModel(config, transformer, encoder)
     """
     print('test in class')
-    def __init__(self, config, transformer, encoder):\
+    def __init__(self, config, transformer, encoder):
         print('test in init')
         super().__init__()
         self.is_decoder = config.is_decoder
