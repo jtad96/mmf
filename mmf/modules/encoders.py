@@ -370,6 +370,7 @@ class TorchvisionResNetImageEncoder(Encoder):
 
 @registry.register_encoder("detectron2_resnet")
 class Detectron2ResnetImageEncoder(Encoder):
+    print('test from Detectron2ResnetImageEncoder class')
     @dataclass
     class Config(Encoder.Config):
         name: str = "detectron2_resnet"
@@ -377,6 +378,7 @@ class Detectron2ResnetImageEncoder(Encoder):
         pretrained_path: str = None
 
     def __init__(self, config: Config, *args, **kwargs):
+        print('test from Detectron2ResnetImageEncoder init')
         super().__init__()
         self.config = config
         pretrained = config.get("pretrained", False)
@@ -401,6 +403,7 @@ class Detectron2ResnetImageEncoder(Encoder):
         self.out_dim = 2048
 
     def forward(self, x):
+        print('test from Detectron2ResnetImageEncoder forward')
         x = self.resnet(x)
         return x["res5"]
 
