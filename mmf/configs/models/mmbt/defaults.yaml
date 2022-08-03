@@ -21,6 +21,7 @@ model_config:
         pretrained: true
         pool_type: avg
         num_output_features: 1
+        name: resnet152
 
     use_modal_start_token: true
     use_modal_end_token: true
