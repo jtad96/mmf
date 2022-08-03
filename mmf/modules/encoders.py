@@ -300,7 +300,7 @@ class TorchvisionResNetImageEncoder(Encoder):
         super().__init__()
         self.config = config
         
-        if 'resnet' in config.name:
+        if 'resne' in config.name:
             model = getattr(torchvision.models, config.name)(
                 pretrained=config.pretrained, zero_init_residual=config.zero_init_residual
             )
@@ -364,8 +364,8 @@ class TorchvisionResNetImageEncoder(Encoder):
 
     def forward(self, x):
         # B x 3 x 224 x 224 -> B x out_dim x 7 x 7
-        #out = self.pool(self.model(x))
-        out = self.model(x)
+        out = self.pool(self.model(x))
+        #out = self.model(x)
         if self.use_avgpool is None:
             out = torch.flatten(out, start_dim=2)
             out = out.transpose(1, 2).contiguous()  # BxNxout_dim
