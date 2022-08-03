@@ -410,6 +410,7 @@ class Detectron2ResnetImageEncoder(Encoder):
 
 @registry.register_encoder("frcnn")
 class FRCNNImageEncoder(Encoder):
+    print('test from FRCNNImageEncoder class')
     @dataclass
     class Config(Encoder.Config):
         name: str = "frcnn"
