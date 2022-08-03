@@ -299,10 +299,15 @@ class TorchvisionResNetImageEncoder(Encoder):
     def __init__(self, config: Config, *args, **kwargs):
         super().__init__()
         self.config = config
-
-        model = getattr(torchvision.models, config.name)(
-            pretrained=config.pretrained, zero_init_residual=config.zero_init_residual
-        )
+        
+        if 'resnet' in config.name:
+            model = getattr(torchvision.models, config.name)(
+                pretrained=config.pretrained, zero_init_residual=config.zero_init_residual
+            )
+        else:
+            model = getattr(torchvision.models, config.name)(
+                pretrained=config.pretrained
+            )
 
         # checks if use_avgpool exists to maintain the old logic
         self.use_avgpool = config.get("use_avgpool", None)
