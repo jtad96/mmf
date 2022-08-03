@@ -20,7 +20,7 @@ model_config:
       params:
         pretrained: true
         pool_type: avg
-        num_output_features: 1
+        num_output_features: -1
         name: alexnet
         #zero_init_residual: false
 
